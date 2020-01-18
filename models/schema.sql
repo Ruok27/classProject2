@@ -1,5 +1,14 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
+-- Drops the blogger if it exists currently --
+DROP DATABASE IF EXISTS treasure;
+-- Creates the "blogger" database --
+CREATE DATABASE treasure;
 
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+USE treasure;
+
+CREATE TABLE users (
+	user_id INTEGER(20) AUTO_INCREMENT NOT NULL, 
+    username VARCHAR(30) NOT NULL,
+	password VARCHAR(30) NOT NULL, 
+    PRIMARY KEY (user_id)
+);
+
