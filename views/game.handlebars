@@ -1,1 +1,60 @@
-<h1> HELLO </h1>
+<style>
+
+
+    body {
+        background-color: aqua;
+    }
+
+    #container{
+
+margin-left: 33%;
+margin-right: 33%;
+font-size: 20pt;
+    }
+
+    #prompt{
+font-family: Pirata One;
+
+
+    }
+
+    #encoded{
+
+        background-color: bisque;
+font-family: Pirata One;
+
+        width: 500px;
+        height: auto;
+        
+
+    }
+</style>
+
+<link rel="stylesheet" href="../public/styles/game.css">
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<div id = "container">
+<div id = "encoded"> encoded message here</div>
+
+
+<div class="form-group">
+    <label for="exampleFormControlTextarea1" id = "prompt">What be the message?</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+<button type="button" class="btn btn-primary">Submit</button>
+
+
+</div>
+
+
+<script>
+$(".btn").click(function(){
+
+
+document.location.href='score'
+
+})
+
+
+</script>
