@@ -1,20 +1,16 @@
 module.exports = function(sequelize, DataTypes) {
 	let Users = sequelize.define('Users', {
-		user_id: {
-			type: DataTypes.INTEGER,
-			autoIncrement: true,
-			primaryKey: true
-		},
 		username: {
 			type: DataTypes.TEXT,
-			allowNull: false,
+			allowNull: true,
+			default: "Tom",
 			validate: {
 				len: [ 1 ]
 			}
 		},
 		password: {
 			type: DataTypes.TEXT,
-			allowNull: false,
+			allowNull: true,
 			validate: {
 				len: [ 1 ]
 			}
