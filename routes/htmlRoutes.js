@@ -13,22 +13,14 @@ module.exports = function(app) {
   });
 
   app.get("/game", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
     res.render("game", {
-    msg: "Welcome!",
-    examples: dbExamples
     });
-    });
-    });
+  });
 
     app.get("/score", function(req, res) {
-      db.Example.findAll({}).then(function(dbExamples) {
       res.render("score", {
-      msg: "Welcome!",
-      examples: dbExamples
       });
-      });
-      });
+    });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
