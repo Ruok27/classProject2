@@ -1,5 +1,11 @@
-#score_page {
+.jumbotron {
     background: url("../images/score.jpg") ;
     color: white;
     width: auto;
+    font-family: Pirata One;
+}
+
+.form  {
+    width: 40%;
+    margin: auto;
 }

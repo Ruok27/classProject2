@@ -1,6 +1,7 @@
 
 .jumbotron {
-    background: url("../images/gun.png")  ;
+    background: url("../images/gun.png");
+    font-family: Pirata One;
 }
 
 form  {
