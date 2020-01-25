@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
 	let Users = sequelize.define('Users', {
 		username: {
 			type: DataTypes.TEXT,
-			allowNull: true,
+			allowNull: false,
 			default: "Tom",
 			validate: {
 				len: [ 1 ]
@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		password: {
 			type: DataTypes.TEXT,
-			allowNull: true,
+			allowNull: false,
 			validate: {
 				len: [ 1 ]
 			}
