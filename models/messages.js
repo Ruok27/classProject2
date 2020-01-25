@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
 	let Messages = sequelize.define('Messages', {
-		message_id: {
-			type: DataTypes.INTEGER,
-			autoIncrement: true,
-			primaryKey: true
-		},
         message_encrypt: {
 			type: DataTypes.TEXT,
 			allowNull: false,

@@ -8,12 +8,8 @@ module.exports = function(app) {
   //});
 
   app.get("/", function(req, res) {
-  db.Example.findAll({}).then(function(dbExamples) {
-  res.render("login", {
-  msg: "Welcome!",
-  examples: dbExamples
-  });
-  });
+    res.render("login", {
+    });
   });
 
   app.get("/game", function(req, res) {
