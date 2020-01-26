@@ -7,8 +7,19 @@ module.exports = function(app) {
   //    res.sendFile(path.join(__dirname,"../public/login.html"));
   //});
 
+  // ROOT page
   app.get("/", function(req, res) {
+    res.render("index", {
+    });
+  });
+
+  app.get("/signin", function(req, res) {
     res.render("login", {
+    });
+  });
+
+  app.get("/signup", function(req, res) {
+    res.render("signup", {
     });
   });
 

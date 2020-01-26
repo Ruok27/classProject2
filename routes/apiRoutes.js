@@ -3,37 +3,56 @@ let jwt = require('jsonwebtoken');
 let db = require('../models');
 
 module.exports = function(app) {
-	// // Log-in and Authentication
-	app.post('/login', function(req, res) {
-		db.Users.findAll(req.params).then(function(dbUsers) {
-			const username = req.body.username;
-			const user = { name: username };
-			for (i = 0; i < db.User.length; i++) {
-				if ((username = db.User[i].username)) {
-					res.render('login', {
-						msg: 'Welcome!'
-					});
-				} else {
-					res.sendStatus(400);
+	
+	// POST /login
+	app.post('/login', function(request, response) {
+		const errorMessage = encodeURI('Invalid username and/or password');
+		const { username, password } = request.body;
+		db.Users.findOne({ where: { username } }).then(function(userExist) {
+			if (userExist && userExist.hasOwnProperty('dataValues')) {
+				const { dataValues } = userExist;
+				if (dataValues.password === password) {
+					return response.redirect(301, '/game');
 				}
+			} else {
+				return response.redirect(301, `/signin?error=true&errorMessage=${errorMessage}`); // User do not exist
 			}
+		}, function(error) {
+			return response.redirect(301, `/signin?error=true&errorMessage=${errorMessage}`); // User do not exist
 		});
 	});
 
-	//Sign-up
-	app.post('/users', function(req, res) {
-		let user = { username: req.body.username, password: req.body.password };
-		console.log(user);
-		db.Users.create({ user }).then(function(dbUsers, err) {
-			if (err) {
-				res.status(400).send('Error in insert new record');
-			} else if (dbUsers) {
-				res.status(201).render('login', {});
-			} else {
-				res.status(500).send();
-			}
+	// POST /users
+	app.post('/users', function(request, response) {
+		const { username, password } = request.body;
+		const user = { username, password };
+		db.Users.create(user).then(function(dbUsers, err) {
+			if (err) return response.status(400).send('Error in insert new record');
+			return response.redirect(301, '/login');
 		});
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// 	app.get('/posts', authenticateToken, function(req, res) {
 	// 		res.json(posts.filter((post) => post.username === req.user.name));
