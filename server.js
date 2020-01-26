@@ -1,5 +1,6 @@
 require("dotenv").config();
 let express = require("express");
+// let flash = require('express-flash-messages');
 let exphbs = require("express-handlebars");
 
 let db = require("./models");
@@ -13,9 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
+app.engine("handlebars", exphbs({
     defaultLayout: "main"
   })
 );
