@@ -36,7 +36,7 @@ module.exports = function(app) {
 	});
 
 	// GET /messages
-	app.get('/api/game', function(request, response) {
+	app.get('/api/getmessages', function(request, response) {
 		db.Messages.findAll({}).then(function(dbMessages) {
 			response.json(dbMessages);
 		});
