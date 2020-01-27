@@ -1,0 +1,10 @@
+
+.jumbotron {
+    background: url("../images/gun.png");
+    font-family: Pirata One;
+}
+
+form  {
+    width: 40%;
+    margin: auto;
+}

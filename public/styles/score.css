@@ -1,0 +1,13 @@
+.jumbotron {
+    background: url("../images/score.jpg") ;
+    color: white;
+    width: auto;
+    font-family: Pirata One;
+
+    font-size: 200%;
+}
+
+.form  {
+    width: 40%;
+    margin: auto;
+}
