@@ -84,3 +84,20 @@ function timeConverter(t) {
 
     return minutes + ":" + seconds;
 }
+
+function getMessages() {
+    $.ajax({
+        url: "/api/getmessages",
+        method: 'GET',
+        dataType: 'json'
+    }).then(function(response) {
+        console.log(response)
+        for (let i = 0; i < response.length; i++) {
+            encryptedM = response[i].message_encrypt;
+            decryptedM = response[i].message_decrypt;
+            $("#encoded").append(encryptedM);
+        }
+    })
+}
+
+getMessages();
