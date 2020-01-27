@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
 				len: [ 1 ]
 			}
 		},
-		message_decrpyt: {
+		message_decrypt: {
 			type: DataTypes.TEXT,
 			allowNull: false,
 			validate: {

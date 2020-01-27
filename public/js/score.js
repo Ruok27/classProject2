@@ -1,4 +1,4 @@
-    let rowContent;
+    let rowContent; 
 
 	// Gets post data for the current post if we're editing, or if we're adding to an author's existing posts
 	function getScoresForTable() {
@@ -24,6 +24,3 @@
 
     getScoresForTable();
 
-    $("#button").click(function () {
-        window.location = 'location:3000/game';
-    });

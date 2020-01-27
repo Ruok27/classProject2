@@ -5,8 +5,8 @@ CREATE DATABASE treasure;
 
 USE treasure;
 
-SELECT * FROM users;
-SELECT * FROM scores;
-SELECT * FROM messages;
+SELECT * FROM Users; 
+SELECT * FROM Scores;
+SELECT * FROM Messages;
 
 
