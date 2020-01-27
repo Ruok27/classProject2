@@ -3,6 +3,7 @@
     "username": "root",
     "password": "Mysqueel15#1",
     "database": "treasure",
+    "port": 3000,
     "host": "localhost",
     "dialect": "mysql"
   },
@@ -12,14 +13,14 @@
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
-    "logging": false
+    "logging": false 
   },
   "production": {
     "username": "op2z6d25xn8t2eik",
     "password": "hp0ew15zo65kdbzi",
     "database": "g53fhqor8pfy734w",
+    "port": 3306,
     "host": "c584md9egjnm02sk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql",
-    "port": 3306
+    "dialect": "mysql"
   }
 }
