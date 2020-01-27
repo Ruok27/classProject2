@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "password123",
+    "password": "Mysqueel15#1",
     "database": "treasure",
     "host": "localhost",
     "dialect": "mysql"
@@ -15,7 +15,11 @@
     "logging": false
   },
   "production": {
-    "use_env_variable": "mysql://op2z6d25xn8t2eik:hp0ew15zo65kdbzi@c584md9egjnm02sk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/g53fhqor8pfy734w",
-    "dialect": "mysql"
+    "username": "op2z6d25xn8t2eik",
+    "password": "hp0ew15zo65kdbzi",
+    "database": "g53fhqor8pfy734w",
+    "host": "c584md9egjnm02sk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "port": 3306
   }
 }

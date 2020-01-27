@@ -8,5 +8,12 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		}
 	});
+	Scores.associate = function(models) {
+		Scores.belongsTo(models.Users, {
+			foreignKey: {
+				allowNull: false
+			}
+		})
+	};
 	return Scores;
 };
