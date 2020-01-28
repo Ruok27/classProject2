@@ -53,8 +53,8 @@ module.exports = function(app) {
 	});
 
 	// Post to Scores db
-	app.post('/api/postscores', function(request, response) {
-		const { score } = request.body;
+	app.post('/api/postscores/:score', function(request, response) {
+		const { score } = request.params;
 		const newScore = { score };
 		db.Scores.create(newScore).then(function(dbScores, err) {
 			if (err) return response.status(400).send('Error in insert new record');

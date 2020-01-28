@@ -1,16 +1,18 @@
 let intervalId;
 let clockRunning = false;
 let time = 0; // this is sent to user
-
+let decryptedM = "";
 let audio = new Audio("audio.mp3");
+let converted;
+let input;
 
 audio.play();
 
 $('.btn-primary').click(function() {
 	//if correct stop timer
 	stop();
-	document.location.href = 'score';
 	// else just say the answers wrong
+	compareMessages();
 });
 
 $('.btn-success').click(function() {
@@ -36,9 +38,7 @@ function count() {
 
 	// DONE: Get the current time, pass that into the timeConverter function,
 	//       and save the result in a variable.
-	let converted = timeConverter(time);
-	console.log(converted);
-
+	converted = timeConverter(time);
 	// DONE: Use the variable we just created to show the converted time in the "display" div.
 	$('#clock').text(converted);
 }
@@ -69,21 +69,30 @@ function getMessages() {
 		console.log(response);
 		for (let i = 0; i < response.length; i++) {
 			encryptedM = response[i].message_encrypt;
-			decryptedM = response[i].message_decrypt;
+			decryptedM = decryptedM.concat(" " + response[i].message_decrypt);
 			$('#encoded').append(encryptedM);
 		}
+		decryptedM = decryptedM.toLowerCase();
 	});
 }
 
 getMessages();
 
-function postScores() {
-    let { score } = request.body;
-    let scoreObj = { score };
+function compareMessages(){
+	input = $("#exampleFormControlTextarea1").val().toLowerCase();
+	if (input == decryptedM) {
+		alert("You win!");
+		postScores(converted);
+
+	} else {
+		alert("You lose!");
+	}
+}
+
+function postScores(converted) {
 	$.ajax({
-		url: "/api/postscores",
+		url: `/api/postscores/:${converted}`,
 		method: 'POST',
-		data: scoreObj,
 		dataType: 'json'
 	}).then(function(response) {
 		console.log(response);
